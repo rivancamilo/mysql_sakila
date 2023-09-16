@@ -22,5 +22,16 @@ WITH CONSULTA_PRINCIAPL AS (
         ON ST.STORE_ID = SF.STORE_ID
     INNER JOIN payment AS PY
         ON SF.STAFF_ID = PY.STAFF_ID
-) SELECT * FROM CONSULTA_PRINCIAPL     
+)
+/*, segunda_consulta as (
+    select
+        STORE,
+        AnnO,
+        MES,
+        sum(amount) as amount
+    from CONSULTA_PRINCIAPL
+    GROUP by 
+        STORE,AnnO,MES
+)*/
+SELECT * FROM CONSULTA_PRINCIAPL     
 LIMIT 5;
